@@ -1,0 +1,3 @@
+a = load '/home/acadgild/data.txt' using PigStorage(',') as (id,name,age,state,city,order,quantity,amount);
+
+STORE a INTO 'hbase://cust' USING org.apache.pig.backend.hadoop.hbase.HBaseStorage('details:name,details:age,details:state,details:city,details:order_no,details:quantity,details:amount');
